@@ -1,4 +1,4 @@
-import { Box, Container } from "@chakra-ui/react";
+import { Button, Box, Container } from "@chakra-ui/react";
 import Grid from "./Components/Grid/Grid";
 
 function App() {
@@ -8,6 +8,9 @@ function App() {
         <Box></Box>
         <Container bg="black" padding={1}>
           <Grid></Grid>
+        </Container>
+        <Container>
+          <Button></Button>
         </Container>
       </Box>
     </>
