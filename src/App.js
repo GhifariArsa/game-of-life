@@ -6,7 +6,6 @@ import {
   GAME_DELAY,
   BG_COLOR,
   PRIMARY,
-  SECONDARY,
   ACCENT,
 } from "./constants/constants";
 import SpeedSlider from "./Components/Slider/SpeedSlider";
