@@ -23,6 +23,9 @@ John Conway's game of life is an example of cellular automaton. It is a zero pla
 3. Run the project using `npm run start`
 4. Go to http://localhost:3000 with the browser of your choice
 
+## Showcase
+![Showcase GIF](/public/Screen%20Recording%202024-01-19%20at%2000.39.56.gif)
+
 #### This project was bootstrapped with create-react-app
 
 
