@@ -12,7 +12,7 @@ John Conway's game of life is an example of cellular automaton. It is a zero pla
 
 ## Deployed App
 
-[Redirect to Netlify Deplymont](https://admirable-swan-e6238c.netlify.app)
+[Redirect to Netlify Deployment](https://admirable-swan-e6238c.netlify.app)
 
 ## How to Run App Locally
 ### Pre-Requisites:
