@@ -25,7 +25,7 @@ function Grid() {
               key={`${rowIndex}-${colIndex}`}
               width="10px"
               height="10px"
-              bg={isClicked ? "blue" : "white"}
+              bg={isClicked ? "#2077E6" : "white"}
               onClick={() => handleBoxClick(rowIndex, colIndex)}
             />
           ))

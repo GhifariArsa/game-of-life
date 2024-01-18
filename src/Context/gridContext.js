@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import { NUM_COLUMN, NUM_ROWS } from "../constants/constants";
+import { NUM_COLUMN, NUM_ROWS, RANDOM_THRESHOLD } from "../constants/constants";
 
 const GridContext = createContext();
 
@@ -9,6 +9,9 @@ export function GridContextProvider({ children }) {
     .map(() => Array(NUM_COLUMN).fill(false));
 
   const [clickedBoxes, setClickedBoxes] = useState(initialClickedBoxes);
+  const [contextSliderValue, setContextSliderValue] = useState(80);
+
+  console.log(contextSliderValue);
 
   // Counting the amount of alive adjacent cells
   const countAliveAdjacent = (grid, row, column) => {
@@ -43,6 +46,7 @@ export function GridContextProvider({ children }) {
       .fill()
       .map(() => Array(NUM_COLUMN).fill(false));
 
+    // Brute force algorithm for checking each neighbour of each cell in the grid
     clickedBoxes.forEach((row, rowIndex) => {
       row.forEach((isClicked, colIndex) => {
         const numAliveAdj = countAliveAdjacent(
@@ -70,9 +74,34 @@ export function GridContextProvider({ children }) {
     setClickedBoxes(newArray);
   };
 
+  const setRandomBoxes = () => {
+    // Creating a copy of the array
+    let newArray = Array(NUM_ROWS)
+      .fill()
+      .map(() => Array(NUM_COLUMN).fill(false));
+
+    // Iterating through the boxes, if Random is less than threshold then change the box to clicked
+    clickedBoxes.forEach((row, rowIndex) => {
+      row.forEach((col, colIndex) => {
+        if (Math.random() < RANDOM_THRESHOLD) {
+          newArray[rowIndex][colIndex] = true;
+        }
+      });
+    });
+    setClickedBoxes(newArray);
+  };
+
   return (
     <GridContext.Provider
-      value={{ clickedBoxes, setClickedBoxes, initialClickedBoxes, startGame }}
+      value={{
+        clickedBoxes,
+        setClickedBoxes,
+        initialClickedBoxes,
+        startGame,
+        setRandomBoxes,
+        contextSliderValue,
+        setContextSliderValue,
+      }}
     >
       {children}
     </GridContext.Provider>
